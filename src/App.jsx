@@ -10,7 +10,7 @@ const App = () => {
   const [tours, setTours] = useState([]);
 
   const [isError, setIsError] = useState(false);
-  
+
 
   const removeTour = (id) => {
     const newTour = tours.filter((tour)=> tour.id !== id )
@@ -42,6 +42,16 @@ const App = () => {
         <Loading />
       </main>
     );
+  }
+
+  if(tours.length === 0) {
+    return <main>
+      <h2>No Tours</h2>
+      <button 
+      onClick={fetchData}
+      className="btn"
+       style={{marginTop:'2rem'}}>Refresh Tours</button>
+    </main>
   }
 
 
