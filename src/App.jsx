@@ -10,6 +10,14 @@ const App = () => {
   const [tours, setTours] = useState([]);
 
   const [isError, setIsError] = useState(false);
+  
+
+  const removeTour = (id) => {
+    const newTour = tours.filter((tour)=> tour.id !== id )
+
+    setTours(newTour)
+
+  }
 
   const fetchData = async () => {
     try {
@@ -44,7 +52,7 @@ const App = () => {
 
   return (
    <main>
-    <Tours tours={tours}/>
+    <Tours tours={tours} removeTour={removeTour}/>
    </main>
   );
 };
